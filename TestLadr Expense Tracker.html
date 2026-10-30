@@ -13,8 +13,8 @@
 <dialog id="receiptDialog" class="modal"><div class="modalhead"><h2>Receipt preview</h2><button class="btn small" data-close="receiptDialog">✕</button></div><div id="receiptPreview"></div></dialog>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script>
 // PUBLIC configuration only. Paste your Supabase Project URL and PUBLISHABLE/ANON key.
-const SUPABASE_URL = 'PASTE_SUPABASE_PROJECT_URL_HERE';
-const SUPABASE_KEY = 'PASTE_SUPABASE_PUBLISHABLE_OR_ANON_KEY_HERE';
+const SUPABASE_URL = 'https://ojkhdfkctcqbitvljbxx.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_dTRSHwI2UVyxRVZLJB0-NA_O0w0Te70';
 const DEFAULT_CATEGORIES=['Domain & Hosting','Website Development','AI Tools','Marketing & Advertising','Content Creation','Software Subscriptions','Salaries & Freelancers','Design & Branding','Payment Gateway','Office & Operations','Legal & Accounting','Other'];
 const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),rupee=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(Number(n)||0),num=n=>Math.max(0,Number(n)||0),uuid=()=>crypto.randomUUID(),today=()=>new Date().toLocaleDateString('en-CA');
 let db=null,session=null,expenses=[],categories=[],editingExpense=null,editingPayment=null,paymentExpense=null,expanded=new Set(),busy=false;
