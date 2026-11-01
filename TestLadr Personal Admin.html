@@ -1366,47 +1366,67 @@ async function uploadVendorFile(client,userId,vendorId,file){
  return {id,path,filename:file.name,type:file.type,size:file.size};
 }
 async function downloadVendorFile(path,name){
- // Open a preview immediately in the user tap gesture, before the async storage request.
- const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
- const tab=ios?window.open('about:blank','_blank'):null;
- if(tab){try{tab.document.title='Preparing document';tab.document.body.innerHTML='<p style="font:16px system-ui;padding:24px">Preparing your document…</p>'}catch(_){}}
- let objectUrl=null;
- try{
-  const client=db();
-  const {data:blob,error}=await client.storage.from('vendor-files').download(path);
-  if(error)throw error;
-  if(!blob || !blob.size)throw Error('The stored document is empty.');
-  objectUrl=URL.createObjectURL(blob);
-  if(ios){
-   if(tab&&!tab.closed){
-    // Blob navigation avoids Safari's unreliable cross-origin Content-Disposition download prompt.
-    tab.location.href=objectUrl;
-   }else{
-    // Popup blocked: present an explicit user-activated link, instead of silent failure.
-    const link=document.createElement('a');link.href=objectUrl;link.target='_blank';link.rel='noopener';link.textContent='Open '+(name||'document');
-    link.style.cssText='position:fixed;z-index:999999;left:16px;right:16px;bottom:20px;padding:16px;background:#1456a0;color:white;border-radius:12px;text-align:center;font:600 16px system-ui';
-    document.body.appendChild(link);setTimeout(()=>link.remove(),60000);
-   }
-   // Keep the object URL alive while the Safari preview is being displayed.
-   setTimeout(()=>URL.revokeObjectURL(objectUrl),10*60*1000);
-   return;
-  }
-  const a=document.createElement('a');a.href=objectUrl;a.download=name||'document';document.body.appendChild(a);a.click();a.remove();
-  setTimeout(()=>URL.revokeObjectURL(objectUrl),60000);
- }catch(e){
-  if(tab&&!tab.closed){try{tab.document.body.textContent='Could not open document: '+e.message}catch(_){tab.close()}}
-  alert('Could not download vendor document: '+e.message);
-  if(objectUrl)URL.revokeObjectURL(objectUrl);
+ // Render the file in the same tab: iPad Safari may block popup/blob navigation.
+ let modal=document.getElementById('tlVendorFileViewer');
+ if(!modal){
+  modal=document.createElement('dialog');modal.id='tlVendorFileViewer';
+  modal.style.cssText='width:min(96vw,950px);max-width:96vw;height:min(88dvh,850px);max-height:88dvh;border:0;border-radius:15px;padding:12px;background:#fff;color:#152c47;box-shadow:0 20px 80px #0008';
+  modal.innerHTML='<div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px"><strong id="tlVendorViewerName" style="flex:1;min-width:150px;overflow-wrap:anywhere"></strong><a id="tlVendorViewerOpen" target="_blank" rel="noopener" style="background:#1456a0;color:#fff;padding:9px 12px;border-radius:8px;text-decoration:none">Open / Save</a><button id="tlVendorViewerClose" type="button" style="padding:9px 12px;border:0;border-radius:8px">Close</button></div><p id="tlVendorViewerStatus" style="font:14px system-ui">Loading document…</p><div id="tlVendorViewerContent" style="height:calc(100% - 105px);overflow:auto"></div><p style="font:12px system-ui;color:#475569">On iPad: tap Open / Save, then use Safari Share → Save to Files. For images, touch and hold to save.</p>';
+  document.body.appendChild(modal);
+  modal.querySelector('#tlVendorViewerClose').onclick=()=>modal.close();
  }
+ const status=modal.querySelector('#tlVendorViewerStatus');
+ const content=modal.querySelector('#tlVendorViewerContent');
+ const open=modal.querySelector('#tlVendorViewerOpen');
+ modal.querySelector('#tlVendorViewerName').textContent=name||'Vendor document';
+ status.textContent='Loading document…';content.replaceChildren();open.removeAttribute('href');open.style.pointerEvents='none';open.style.opacity='.5';
+ if(!modal.open)modal.showModal();
+ try{
+  const {data:blob,error}=await db().storage.from('vendor-files').download(path);
+  if(error)throw error;
+  if(!blob||!blob.size)throw Error('Document is empty');
+  const old=modal.dataset.objectUrl;
+  if(old){URL.revokeObjectURL(old);delete modal.dataset.objectUrl;}
+  const url=URL.createObjectURL(blob);modal.dataset.objectUrl=url;
+  open.href=url;open.download=name||'document';open.style.pointerEvents='auto';open.style.opacity='1';
+  const mime=blob.type||'';const filename=(name||'').toLowerCase();
+  if(mime.startsWith('image/')||/\.(png|jpe?g|gif|webp)$/i.test(filename)){
+   const img=document.createElement('img');img.src=url;img.alt=name||'Vendor document';img.style.cssText='max-width:100%;height:auto;display:block;margin:auto';content.append(img);
+  }else if(mime==='application/pdf'||/\.pdf$/i.test(filename)){
+   const frame=document.createElement('iframe');frame.src=url;frame.title=name||'Vendor PDF';frame.style.cssText='width:100%;height:100%;border:0';content.append(frame);
+  }else{
+   const p=document.createElement('p');p.textContent='Preview is unavailable for this file type. Tap Open / Save to access the document.';content.append(p);
+  }
+  status.textContent='Document loaded ('+Math.round(blob.size/1024)+' KB).';
+ }catch(err){status.textContent='Unable to load document: '+(err?.message||err);open.style.pointerEvents='none';open.style.opacity='.5';}
 }
 $('vendorDetailsBody').addEventListener('click',e=>{const a=e.target.closest('[data-vendor-file]');if(!a)return;e.preventDefault();downloadVendorFile(a.dataset.vendorFile,a.dataset.filename)});
+// iPad Safari: data: image downloads can show a confirmation but never save.
+// Display the original receipt in a first-party modal instead of triggering a data: download.
+$('vendorDetailsBody').addEventListener('click',e=>{
+ const a=e.target.closest('[data-vendor-receipt]');if(!a)return;
+ e.preventDefault();
+ const src=a.getAttribute('data-vendor-receipt')||'';
+ if(!/^data:image\/(?:png|jpeg|webp);base64,/i.test(src)){alert('This receipt image is unavailable.');return;}
+ let modal=document.getElementById('vendorReceiptPreviewModal');
+ if(!modal){
+  modal=document.createElement('dialog');modal.id='vendorReceiptPreviewModal';
+  modal.style.cssText='max-width:min(95vw,850px);max-height:92dvh;border:0;border-radius:16px;padding:16px;background:white;color:#172d48;box-shadow:0 20px 70px #0006';
+  modal.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:10px"><strong>Payment receipt</strong><button type="button" data-close-receipt style="padding:9px 15px;border:0;border-radius:9px;background:#e8eef8">Close</button></div><p style="font:14px system-ui;margin:5px 0 12px">On iPad: touch and hold the receipt image, then choose <b>Save to Photos</b>. You can also take a screenshot.</p><img alt="Payment receipt" style="display:block;max-width:100%;max-height:65dvh;object-fit:contain;margin:auto;border-radius:8px"/>';
+  modal.querySelector('[data-close-receipt]').onclick=()=>modal.close();
+  document.body.appendChild(modal);
+ }
+ modal.querySelector('img').src=src;
+ modal.showModal();
+});
+
 async function fileData(file){if(file.size>1024*1024)throw Error(file.name+' exceeds 1 MB');return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(Error('Could not read '+file.name));r.readAsDataURL(file)})}
 $('vendorFiles').addEventListener('change',()=>{const files=Array.from($('vendorFiles').files);$('vendorNewDocMeta').innerHTML=files.map((f,i)=>`<div class="vendor-doc-meta"><strong>📄 ${esc(f.name)}</strong><label>Document name<input data-new-doc-name="${i}" maxlength="150" value="${esc(f.name)}" required></label><label>Description<textarea data-new-doc-description="${i}" rows="2" placeholder="What is this document for?"></textarea></label></div>`).join('')});
 $('vendorPhoto').addEventListener('change',()=>{const f=$('vendorPhoto').files[0];if(!f)return;if(f.size>700*1024||!['image/png','image/jpeg','image/webp'].includes(f.type)){alert('Choose a JPG, PNG or WebP photo under 700 KB.');$('vendorPhoto').value='';return;}const url=URL.createObjectURL(f);$('vendorPhotoPreview').replaceChildren();const img=document.createElement('img');img.className='vendor-avatar';img.alt='New vendor photo';img.src=url;img.onload=()=>URL.revokeObjectURL(url);$('vendorPhotoPreview').append(img)});
 async function deleteVendor(v){if(!confirm(`Delete vendor "${v.name}"? This deletes its saved profile and documents. Existing Expense Tracker records and payments will remain unchanged.`))return;try{const client=db();const {error}=await client.from(table).delete().eq('id',v.id);if(error)throw error;await load(true)}catch(e){alert('Unable to delete vendor: '+e.message)}}
 function renderOverviewVendors(){const host=$('ovVendorSummary');if(!host)return;const expenses=expenseRecords();const linkedExpenses=expenses.filter(x=>vendors.some(v=>x.vendor_id===v.id||(!x.vendor_id&&String(x.vendor||'').trim().toLowerCase()===v.name.trim().toLowerCase())));$('ovVendorTotal').textContent=loaded?vendors.length:'—';$('ovVendorLinked').textContent=loaded?linkedExpenses.length:'—';$('ovVendorPaid').textContent=loaded?currency(linkedExpenses.reduce((sum,x)=>sum+paid(x),0)):'—';if(!loaded){host.textContent='Loading vendors…';return}host.replaceChildren();if(!vendors.length){host.className='ov-empty';host.textContent='No vendors added yet.';return}host.className='ov-vendor-list';vendors.slice(0,8).forEach(v=>{const row=document.createElement('div');row.className='ov-vendor-row';const avatar=document.createElement('div');avatar.className='ov-vendor-avatar';if(v.photo&&/^data:image\/(?:png|jpeg|webp);base64,/.test(v.photo)){const img=document.createElement('img');img.src=v.photo;img.alt='';avatar.append(img)}else avatar.textContent=v.name.slice(0,1).toUpperCase();const detail=document.createElement('div');detail.className='ov-vendor-info';const name=document.createElement('strong');name.textContent=v.name;const meta=document.createElement('small');meta.textContent=`${(v.documents||[]).length} documents · ${linked(v).length} expenses`;detail.append(name,meta);const amount=document.createElement('strong');amount.className='ov-vendor-amount';amount.textContent=currency(linked(v).reduce((sum,x)=>sum+paid(x),0));row.append(avatar,detail,amount);host.append(row)})}
 window.testladrRefreshOverviewVendors=renderOverviewVendors;
-function detail(v,paymentsOnly=false){const rows=linked(v),docs=v.documents||[];$('vendorDetailsTitle').textContent=paymentsOnly?'Payments Made — '+v.name:v.name;const docHtml=docs.length?docs.map(d=>`<div class="vendor-doc"><span><strong>${esc(d.name)}</strong>${d.description?`<small class="vendor-doc-desc">${esc(d.description)}</small>`:''}</span><a href="${d.path?'#':(/^data:[a-zA-Z0-9.+\/-]+;base64,/.test(d.data||'')?d.data:'#')}" ${d.path?`data-vendor-file="${esc(d.path)}" data-filename="${esc(d.filename||d.name)}"`:`download="${esc(d.name)}"`}>Download</a></div>`).join(''):'<p class="muted">No documents uploaded.</p>';const payments=rows.flatMap(x=>(x.payments||[]).map(p=>({expense:x,p}))).sort((a,b)=>String(b.p.date||'').localeCompare(String(a.p.date||'')));const payHtml=payments.length?payments.map(({expense,p})=>`<div class="vendor-payrow"><strong>${esc(p.title||expense.description)}</strong><div>${esc(expense.description)} · ${esc(p.date)} · ${currency(p.amount)} · ${esc(p.method||'')}</div>${/^data:image\/(png|jpeg|webp);base64,/.test(p.receipt||expense.receipt||'')?`<a class="vendor-receipt-button" href="${p.receipt||expense.receipt}" target="_blank" rel="noopener" download="vendor-payment-receipt">🧾 View Receipt</a>`:'<small class="muted">No receipt attached</small>'}</div>`).join(''):'<p class="muted">No recorded installment payments yet.</p>';
+function detail(v,paymentsOnly=false){const rows=linked(v),docs=v.documents||[];$('vendorDetailsTitle').textContent=paymentsOnly?'Payments Made — '+v.name:v.name;const docHtml=docs.length?docs.map(d=>`<div class="vendor-doc"><span><strong>${esc(d.name)}</strong>${d.description?`<small class="vendor-doc-desc">${esc(d.description)}</small>`:''}</span><a href="${d.path?'#':(/^data:[a-zA-Z0-9.+\/-]+;base64,/.test(d.data||'')?d.data:'#')}" ${d.path?`data-vendor-file="${esc(d.path)}" data-filename="${esc(d.filename||d.name)}"`:`download="${esc(d.name)}"`}>Download</a></div>`).join(''):'<p class="muted">No documents uploaded.</p>';const payments=rows.flatMap(x=>(x.payments||[]).map(p=>({expense:x,p}))).sort((a,b)=>String(b.p.date||'').localeCompare(String(a.p.date||'')));const payHtml=payments.length?payments.map(({expense,p})=>`<div class="vendor-payrow"><strong>${esc(p.title||expense.description)}</strong><div>${esc(expense.description)} · ${esc(p.date)} · ${currency(p.amount)} · ${esc(p.method||'')}</div>${/^data:image\/(png|jpeg|webp);base64,/.test(p.receipt||expense.receipt||'')?`<a class="vendor-receipt-button" href="#" data-vendor-receipt="${esc(p.receipt||expense.receipt)}">🧾 View Receipt</a>`:'<small class="muted">No receipt attached</small>'}</div>`).join(''):'<p class="muted">No recorded installment payments yet.</p>';
 $('vendorDetailsBody').innerHTML=(paymentsOnly?'':`${v.photo&&/^data:image\/(?:png|jpeg|webp);base64,/.test(v.photo)?`<img class="vendor-detail-photo" src="${v.photo}" alt="Vendor photo">`:''}<p><b>Contact:</b> ${esc(v.contact||'—')} · ${esc(v.phone||'—')}</p><p><b>Email:</b> ${esc(v.email||'—')}</p><p><b>GST / Tax ID:</b> ${esc(v.tax_id||'—')}</p><p><b>Address:</b> ${esc(v.address||'—')}</p><p><b>Notes:</b> ${esc(v.notes||'—')}</p><h3>Documents (${docs.length})</h3>${docHtml}`)+`<h3>Expense Tracker — Payments Made</h3><p><b>${rows.length}</b> linked expenses · <b>${currency(rows.reduce((a,x)=>a+paid(x),0))}</b> paid</p>${payHtml}<p class="muted">To add a payment, open Expense Tracker and choose this vendor in the Vendor / Paid to field.</p>`;$('vendorDetailsDialog').showModal()}
 function viewVendorTeams(v){const linked=(window.testladrStaffTeams?.()||[]).filter(t=>t.vendor_id===v.id);const people=window.testladrStaffMembers?.()||[];$('vendorDetailsTitle').textContent='Teams linked to '+v.name;const host=$('vendorDetailsBody');host.replaceChildren();const summary=document.createElement('p');summary.textContent=linked.length+' team(s) linked to this vendor';host.append(summary);const add=document.createElement('button');add.type='button';add.className='btn primary';add.textContent='+ Add Team for This Vendor';add.onclick=async()=>{$('vendorDetailsDialog').close();document.getElementById('navStaff').click();await window.testladrOpenTeamForVendor?.(v.id)};host.append(add);if(!linked.length){const empty=document.createElement('p');empty.className='muted';empty.style.marginTop='18px';empty.textContent='No teams linked yet. Add a team here, or edit an existing team and select this vendor.';host.append(empty)}for(const t of linked){const card=document.createElement('div');card.className='vendor-linked-staff';const name=document.createElement('strong');name.textContent=t.name;const meta=document.createElement('span');meta.textContent=[t.status||'Active',people.filter(m=>m.team_id===t.id).length+' members',t.description].filter(Boolean).join(' · ');const edit=document.createElement('button');edit.type='button';edit.className='btn';edit.textContent='Open Team';edit.onclick=()=>{$('vendorDetailsDialog').close();document.getElementById('navStaff').click();window.testladrShowTeam?.(t.id)};card.append(name,meta,edit);host.append(card)}$('vendorDetailsDialog').showModal()}
 function viewVendorStaff(v){const people=(window.testladrStaffMembers?.()||[]).filter(m=>m.vendor_id===v.id);$('vendorDetailsTitle').textContent='Staff from '+v.name;const host=$('vendorDetailsBody');host.replaceChildren();const summary=document.createElement('p');summary.textContent=people.length+' staff member(s) linked to this vendor';host.append(summary);const add=document.createElement('button');add.type='button';add.className='btn primary';add.textContent='+ Add Staff from This Vendor';add.onclick=async()=>{$('vendorDetailsDialog').close();document.getElementById('navStaff').click();if(window.testladrLoadStaffForOverview)await window.testladrLoadStaffForOverview();window.testladrOpenStaffForVendor?.(v.id)};host.append(add);if(!people.length){const empty=document.createElement('p');empty.className='muted';empty.style.marginTop='18px';empty.textContent='No staff linked yet. Use the button above, or edit a staff profile and choose this vendor.';host.append(empty)}for(const m of people){const card=document.createElement('div');card.className='vendor-linked-staff';const name=document.createElement('strong');name.textContent=m.name;const meta=document.createElement('span');meta.textContent=[m.role,m.department,m.status].filter(Boolean).join(' · ');card.append(name,meta);host.append(card)}$('vendorDetailsDialog').showModal()}
