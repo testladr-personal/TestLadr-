@@ -709,10 +709,10 @@ main#app&gt;h1{font-size:clamp(28px,3.6vw,38px);letter-spacing:-1.4px;color:#102
 main#app&gt;p{font-size:14px;max-width:690px;margin:0 0 26px;color:#64748b}
 main#app&gt;section{background:#fff;border:1px solid #dbe8fa;border-radius:22px;padding:26px;margin:20px 0;box-shadow:0 12px 40px rgba(26,66,135,.065),0 2px 8px rgba(26,66,135,.025);position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s}
 main#app&gt;section:hover{box-shadow:0 18px 48px rgba(26,66,135,.10)}
-main#app&gt;section::before{content:'';position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(180deg,#2563eb,#38bdf8);opacity:.9}
+main#app&gt;section::before{content:&#x27;&#x27;;position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(180deg,#2563eb,#38bdf8);opacity:.9}
 main#app&gt;section h2,main#app&gt;section h3{color:#122a59;letter-spacing:-.5px}
 main#app&gt;section:first-of-type{background:linear-gradient(145deg,#fff,#f8fbff)}
-main#app&gt;section:first-of-type:after{content:'';position:absolute;right:-70px;top:-85px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#60a5fa1c,transparent 70%);pointer-events:none}
+main#app&gt;section:first-of-type:after{content:&#x27;&#x27;;position:absolute;right:-70px;top:-85px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#60a5fa1c,transparent 70%);pointer-events:none}
 #pdfFile{border:2px dashed #9fc1f6;background:#f4f8ff;padding:22px 18px;border-radius:16px;cursor:pointer;min-height:76px;transition:.2s}
 #pdfFile:hover,#pdfFile:focus{border-color:#2563eb;background:#ebf3ff;box-shadow:0 0 0 4px #2563eb13;outline:none}
 #generation{background:#f8fbff;border-color:#d8e5f8;min-height:46px}
@@ -733,9 +733,9 @@ main#app button.secondary:hover{background:#e3efff;box-shadow:0 8px 18px #2563eb
 main#app input:not([type=file]),main#app textarea,main#app select{transition:border-color .2s,box-shadow .2s}
 main#app input:focus,main#app textarea:focus,main#app select:focus{outline:none;border-color:#60a5fa;box-shadow:0 0 0 3px #3b82f61a}
 .studio-eyebrow{display:inline-flex;align-items:center;gap:8px;color:#2563eb;font-size:11px;font-weight:850;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:12px}
-.studio-eyebrow::before{content:'';width:8px;height:8px;background:#38bdf8;border-radius:50%;box-shadow:0 0 0 5px #38bdf81f,0 0 14px #38bdf8}
+.studio-eyebrow::before{content:&#x27;&#x27;;width:8px;height:8px;background:#38bdf8;border-radius:50%;box-shadow:0 0 0 5px #38bdf81f,0 0 14px #38bdf8}
 .studio-hero{padding:26px 30px!important;border:1px solid #294b94!important;background:linear-gradient(120deg,#122855 0%,#173f88 62%,#126bb0 100%)!important;border-radius:22px!important;box-shadow:0 18px 42px #173d8b26!important;color:#fff!important;margin-bottom:24px!important;overflow:hidden;position:relative}
-.studio-hero::after{content:'';position:absolute;right:-65px;top:-105px;width:300px;height:300px;border-radius:50%;border:45px solid #ffffff0b;pointer-events:none}
+.studio-hero::after{content:&#x27;&#x27;;position:absolute;right:-65px;top:-105px;width:300px;height:300px;border-radius:50%;border:45px solid #ffffff0b;pointer-events:none}
 .studio-hero .studio-eyebrow{color:#a5d9ff}
 .studio-hero h1{font-size:clamp(26px,3vw,38px);letter-spacing:-1.1px;margin:3px 0 8px;color:white}
 .studio-hero p{color:#d1e4ff;margin:0;max-width:670px;font-size:14px;line-height:1.65}
@@ -752,21 +752,21 @@ main#app input:focus,main#app textarea:focus,main#app select:focus{outline:none;
 .tablewrap tbody td{display:block!important;min-width:0!important;width:100%!important;padding:0!important;border:0!important;background:transparent!important}
 .tablewrap tbody td::before{display:block;font-size:11px;font-weight:800;letter-spacing:.04em;color:#617698;margin:0 0 6px;text-transform:uppercase}
 .tablewrap tbody td:nth-child(1){grid-column:1/-1;color:#235ad0;font-size:14px;font-weight:850;border-bottom:1px solid #e9eef8!important;padding-bottom:10px!important}
-.tablewrap tbody td:nth-child(1)::before{content:'QUESTION NUMBER';display:inline;margin-right:9px}
-.tablewrap tbody td:nth-child(2){grid-column:1/-1}.tablewrap tbody td:nth-child(2)::before{content:'Question text'}
-.tablewrap tbody td:nth-child(3)::before{content:'Option A'}.tablewrap tbody td:nth-child(4)::before{content:'Option B'}
-.tablewrap tbody td:nth-child(5)::before{content:'Option C'}.tablewrap tbody td:nth-child(6)::before{content:'Option D'}
-.tablewrap tbody td:nth-child(7)::before{content:'Correct answer'}
-.tablewrap tbody td:nth-child(8){grid-column:1/-1}.tablewrap tbody td:nth-child(8)::before{content:'Explanation'}
-.tablewrap tbody td:nth-child(9)::before{content:'Question type'}
-.tablewrap tbody td:nth-child(10)::before{content:'Marks'}
-.tablewrap tbody td:nth-child(11)::before{content:'Negative marks'}
-.tablewrap tbody td:nth-child(12)::before{content:'Difficulty'}
-.tablewrap tbody td:nth-child(13)::before{content:'Connected group'}
-.tablewrap tbody td:nth-child(14){grid-column:1/-1}.tablewrap tbody td:nth-child(14)::before{content:'Passage'}
-.tablewrap tbody td:nth-child(15)::before{content:'Connected title'}
-.tablewrap tbody td:nth-child(16)::before{content:'Review status'}
-.tablewrap tbody td:nth-child(17){display:flex!important;align-items:end;justify-content:flex-end}.tablewrap tbody td:nth-child(17)::before{content:''}
+.tablewrap tbody td:nth-child(1)::before{content:&#x27;QUESTION NUMBER&#x27;;display:inline;margin-right:9px}
+.tablewrap tbody td:nth-child(2){grid-column:1/-1}.tablewrap tbody td:nth-child(2)::before{content:&#x27;Question text&#x27;}
+.tablewrap tbody td:nth-child(3)::before{content:&#x27;Option A&#x27;}.tablewrap tbody td:nth-child(4)::before{content:&#x27;Option B&#x27;}
+.tablewrap tbody td:nth-child(5)::before{content:&#x27;Option C&#x27;}.tablewrap tbody td:nth-child(6)::before{content:&#x27;Option D&#x27;}
+.tablewrap tbody td:nth-child(7)::before{content:&#x27;Correct answer&#x27;}
+.tablewrap tbody td:nth-child(8){grid-column:1/-1}.tablewrap tbody td:nth-child(8)::before{content:&#x27;Explanation&#x27;}
+.tablewrap tbody td:nth-child(9)::before{content:&#x27;Question type&#x27;}
+.tablewrap tbody td:nth-child(10)::before{content:&#x27;Marks&#x27;}
+.tablewrap tbody td:nth-child(11)::before{content:&#x27;Negative marks&#x27;}
+.tablewrap tbody td:nth-child(12)::before{content:&#x27;Difficulty&#x27;}
+.tablewrap tbody td:nth-child(13)::before{content:&#x27;Connected group&#x27;}
+.tablewrap tbody td:nth-child(14){grid-column:1/-1}.tablewrap tbody td:nth-child(14)::before{content:&#x27;Passage&#x27;}
+.tablewrap tbody td:nth-child(15)::before{content:&#x27;Connected title&#x27;}
+.tablewrap tbody td:nth-child(16)::before{content:&#x27;Review status&#x27;}
+.tablewrap tbody td:nth-child(17){display:flex!important;align-items:end;justify-content:flex-end}.tablewrap tbody td:nth-child(17)::before{content:&#x27;&#x27;}
 .tablewrap tbody td input,.tablewrap tbody td textarea{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important;border:1px solid #dbe5f4;border-radius:9px;background:#f9fbff;color:#26395c;font-size:13px;padding:10px;resize:vertical}
 .tablewrap tbody td textarea{min-height:72px}.tablewrap tbody td:nth-child(2) textarea{min-height:100px}
 .tablewrap tbody td input:focus,.tablewrap tbody td textarea:focus{outline:2px solid #80b6ff;background:#fff}
@@ -809,29 +809,94 @@ body.testladr-table-view .table-horizontal-controls{display:flex}
 &lt;section&gt;&lt;h2&gt;3. AI generation setup&lt;/h2&gt;&lt;div class=&quot;note&quot;&gt;For secure AI generation on GitHub Pages, deploy the included Supabase Edge Function and store your OpenAI API key as a &lt;strong&gt;Supabase server-side secret&lt;/strong&gt;. The browser must never contain your AI secret key. Until the function is deployed, PDF extraction and Excel export work, but generation is unavailable.&lt;/div&gt;&lt;/section&gt;&lt;/main&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-'use strict';
-const SUPABASE_URL='https://ojkhdfkctcqbitvljbxx.supabase.co';
-const SUPABASE_KEY='sb_publishable_dTRSHwI2UVyxRVZLJB0-NA_O0w0Te70';
-const OWNER_UID='a47a9f8a-d871-4271-a758-68ea13b938e5';
-const HEADERS=['Question ','Option A','Option B','Option C','Option D','Correct Answer ','Explanation ','Question Type ','Marks ','Negative Marks ','Difficulty ','Connected Group ','Passage ','Connected Title '];
-const $=id=&gt;document.getElementById(id), status=t=&gt;$('status').textContent=t;
+&#x27;use strict&#x27;;
+const SUPABASE_URL=&#x27;https://ojkhdfkctcqbitvljbxx.supabase.co&#x27;;
+const SUPABASE_KEY=&#x27;sb_publishable_dTRSHwI2UVyxRVZLJB0-NA_O0w0Te70&#x27;;
+const OWNER_UID=&#x27;a47a9f8a-d871-4271-a758-68ea13b938e5&#x27;;
+const HEADERS=[&#x27;Question &#x27;,&#x27;Option A&#x27;,&#x27;Option B&#x27;,&#x27;Option C&#x27;,&#x27;Option D&#x27;,&#x27;Correct Answer &#x27;,&#x27;Explanation &#x27;,&#x27;Question Type &#x27;,&#x27;Marks &#x27;,&#x27;Negative Marks &#x27;,&#x27;Difficulty &#x27;,&#x27;Connected Group &#x27;,&#x27;Passage &#x27;,&#x27;Connected Title &#x27;];
+const $=id=&gt;document.getElementById(id), status=t=&gt;$(&#x27;status&#x27;).textContent=t;
 const client=window.supabase?.createClient(SUPABASE_URL,SUPABASE_KEY);
-const rows=[];let currentFile='Question Paper';
-const esc=s=&gt;String(s??'').replace(/[&amp;&lt;&gt;&quot;']/g,c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','&quot;':'&amp;quot;',&quot;'&quot;:'&amp;#39;'}[c]));
-const blank=()=&gt;['','','','','','','','Single',1,0,'Medium','','',''];
-function render(){const head=$('headers');head.innerHTML='&lt;th&gt;#&lt;/th&gt;'+HEADERS.map(h=&gt;'&lt;th&gt;'+esc(h)+'&lt;/th&gt;').join('')+'&lt;th&gt;Review&lt;/th&gt;&lt;th&gt;Action&lt;/th&gt;';
-$('rows').innerHTML=rows.map((r,i)=&gt;'&lt;tr&gt;&lt;td&gt;'+(i+1)+'&lt;/td&gt;'+r.values.map((v,j)=&gt;'&lt;td&gt;'+(j===0||j===6||j===12?'&lt;textarea':'&lt;input')+' data-i=&quot;'+i+'&quot; data-j=&quot;'+j+'&quot; '+(j===0||j===6||j===12?'':'class=&quot;'+(j===8||j===9?'tiny':'')+'&quot;')+' '+(j===0||j===6||j===12?'':'type=&quot;text&quot;')+(j===0||j===6||j===12?'&gt; '+esc(v)+'&lt;/textarea&gt;':' value=&quot;'+esc(v)+'&quot;&gt;')+'&lt;/td&gt;').join('')+'&lt;td&gt;'+(r.review?'&lt;span class=&quot;tag&quot;&gt;'+esc(r.review)+'&lt;/span&gt;':'—')+'&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;secondary&quot; data-remove=&quot;'+i+'&quot;&gt;Remove&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;').join('');
-$('count').textContent=rows.length+' questions in preview';$('download').disabled=!rows.length;$('aiBtn').disabled=!rows.length||$('generation').value==='extract';$('optionsBtn').disabled=!rows.length;}
-$('rows').addEventListener('input',e=&gt;{const el=e.target;if(el.dataset.i!==undefined){rows[+el.dataset.i].values[+el.dataset.j]=el.value}});
-$('rows').addEventListener('click',e=&gt;{const el=e.target;if(el.dataset.remove!==undefined){rows.splice(+el.dataset.remove,1);render()}});
-$('addRow').onclick=()=&gt;{rows.push({values:blank(),review:'Manual'});render()};
-$('generation').onchange=render;
-function clean(s){return s.replace(/\u00ad/g,'').replace(/[ \t]+/g,' ').trim()}
+const rows=[];let currentFile=&#x27;Question Paper&#x27;;
+const esc=s=&gt;String(s??&#x27;&#x27;).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g,c=&gt;({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[c]));
+const blank=()=&gt;[&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;Single&#x27;,1,0,&#x27;Medium&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;];
+function render(){const head=$(&#x27;headers&#x27;);head.innerHTML=&#x27;&lt;th&gt;#&lt;/th&gt;&#x27;+HEADERS.map(h=&gt;&#x27;&lt;th&gt;&#x27;+esc(h)+&#x27;&lt;/th&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;th&gt;Review&lt;/th&gt;&lt;th&gt;Action&lt;/th&gt;&#x27;;
+$(&#x27;rows&#x27;).innerHTML=rows.map((r,i)=&gt;&#x27;&lt;tr&gt;&lt;td&gt;&#x27;+(i+1)+&#x27;&lt;/td&gt;&#x27;+r.values.map((v,j)=&gt;&#x27;&lt;td&gt;&#x27;+(j===0||j===6||j===12?&#x27;&lt;textarea&#x27;:&#x27;&lt;input&#x27;)+&#x27; data-i=&quot;&#x27;+i+&#x27;&quot; data-j=&quot;&#x27;+j+&#x27;&quot; &#x27;+(j===0||j===6||j===12?&#x27;&#x27;:&#x27;class=&quot;&#x27;+(j===8||j===9?&#x27;tiny&#x27;:&#x27;&#x27;)+&#x27;&quot;&#x27;)+&#x27; &#x27;+(j===0||j===6||j===12?&#x27;&#x27;:&#x27;type=&quot;text&quot;&#x27;)+(j===0||j===6||j===12?&#x27;&gt; &#x27;+esc(v)+&#x27;&lt;/textarea&gt;&#x27;:&#x27; value=&quot;&#x27;+esc(v)+&#x27;&quot;&gt;&#x27;)+&#x27;&lt;/td&gt;&#x27;).join(&#x27;&#x27;)+&#x27;&lt;td&gt;&#x27;+(r.review?&#x27;&lt;span class=&quot;tag&quot;&gt;&#x27;+esc(r.review)+&#x27;&lt;/span&gt;&#x27;:&#x27;—&#x27;)+&#x27;&lt;/td&gt;&lt;td&gt;&lt;button class=&quot;secondary&quot; data-remove=&quot;&#x27;+i+&#x27;&quot;&gt;Remove&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;&#x27;).join(&#x27;&#x27;);
+$(&#x27;count&#x27;).textContent=rows.length+&#x27; questions in preview&#x27;;$(&#x27;download&#x27;).disabled=!rows.length;$(&#x27;aiBtn&#x27;).disabled=!rows.length||$(&#x27;generation&#x27;).value===&#x27;extract&#x27;;$(&#x27;optionsBtn&#x27;).disabled=!rows.length;}
+$(&#x27;rows&#x27;).addEventListener(&#x27;input&#x27;,e=&gt;{const el=e.target;if(el.dataset.i!==undefined){rows[+el.dataset.i].values[+el.dataset.j]=el.value}});
+$(&#x27;rows&#x27;).addEventListener(&#x27;click&#x27;,e=&gt;{const el=e.target;if(el.dataset.remove!==undefined){rows.splice(+el.dataset.remove,1);render()}});
+$(&#x27;addRow&#x27;).onclick=()=&gt;{rows.push({values:blank(),review:&#x27;Manual&#x27;});render()};
+$(&#x27;generation&#x27;).onchange=render;
+function clean(s){return s.replace(/\u00ad/g,&#x27;&#x27;).replace(/[ \t]+/g,&#x27; &#x27;).trim()}
+function parseTestLadrJee(raw){
+ const lines=raw.replace(/\r/g,&#x27;\n&#x27;).split(&#x27;\n&#x27;).map(x=&gt;x.replace(/^@@(?:PASSAGE|STEM)@@/,&#x27;&#x27;).trim()).filter(Boolean);
+ raw=lines.join(&#x27;\n&#x27;);
+ if(!/TESTLADR\s*\|\s*JEE MAIN PRACTICE PAPER/i.test(raw)||!/Q\.\s*1\s*\|\s*\+\d+\s*\/\s*-\d+/i.test(raw))return null;
+ const out=[];let current=null,mode=&#x27;stem&#x27;,subject=&#x27;&#x27;;
+ const finish=()=&gt;{if(!current)return;if(current._stem)parseStem(current._stem);const v=current.values;if(!v.slice(1,5).some(Boolean)&amp;&amp;v[5]&amp;&amp;!/^[A-D]$/.test(v[5]))v[7]=&#x27;Numerical&#x27;;for(let i=0;i&lt;=6;i++)v[i]=String(v[i]||&#x27;&#x27;).replace(/\s+/g,&#x27; &#x27;).trim();current.review=!v[0]?&#x27;Missing question — review&#x27;:v[7]===&#x27;Numerical&#x27;?&#x27;Numerical answer — verify&#x27;:v.slice(1,5).every(Boolean)&amp;&amp;v[5]?&#x27;Extracted — verify&#x27;:&#x27;Options or answer missing — review&#x27;;out.push(current);current=null};
+ const optionMarker=/(?:^|\s)\(\s*([A-D])\s*\)\s*/g;
+ function parseStem(line){
+  const hits=[...line.matchAll(optionMarker)];if(!hits.length){current.values[0]+=(current.values[0]?&#x27; &#x27;:&#x27;&#x27;)+line;return}
+  const prefix=line.slice(0,hits[0].index).trim();if(prefix)current.values[0]+=(current.values[0]?&#x27; &#x27;:&#x27;&#x27;)+prefix;
+  for(let i=0;i&lt;hits.length;i++){const h=hits[i],k=&#x27;ABCD&#x27;.indexOf(h[1])+1,stop=i+1&lt;hits.length?hits[i+1].index:line.length;current.values[k]+=(current.values[k]?&#x27; &#x27;:&#x27;&#x27;)+line.slice(h.index+h[0].length,stop).trim()}
+ }
+ for(const line of lines){
+  if(/^(MATHEMATICS|PHYSICS|CHEMISTRY)$/i.test(line)){finish();subject=line;continue}
+  const q=line.match(/^Q\.\s*(\d+)\s*\|\s*\+(\d+(?:\.\d+)?)\s*\/\s*-(\d+(?:\.\d+)?)\s*\|/i);
+  if(q){finish();current={values:blank(),number:+q[1],review:&#x27;&#x27;};current.values[8]=+q[2];current.values[9]=+q[3];current.values[13]=subject;mode=&#x27;stem&#x27;;continue}
+  if(!current||/^TestLadr\s*\||^Page\s*\d+\b/i.test(line))continue;
+  const a=line.match(/^Correct answer:\s*(?:Option\s*\(?([A-D])\)?|(.+))$/i);
+  if(a){current.values[5]=a[1]?a[1].toUpperCase():a[2].trim();mode=&#x27;answer&#x27;;continue}
+  if(/^Solution\s*:/i.test(line)){mode=&#x27;solution&#x27;;current.values[6]+=(current.values[6]?&#x27; &#x27;:&#x27;&#x27;)+line.replace(/^Solution\s*:\s*/i,&#x27;&#x27;);continue}
+  if(mode===&#x27;solution&#x27;){current.values[6]+=&#x27; &#x27;+line;continue}
+  if(mode===&#x27;answer&#x27;)continue;
+  if(/\[\s*Numerical\s*\/\s*Integer Type Question/i.test(line))current.values[7]=&#x27;Numerical&#x27;;
+  if(mode===&#x27;stem&#x27;)current._stem=(current._stem?current._stem+&#x27; &#x27;:&#x27;&#x27;)+line;
+ }
+ finish();return out;
+}
+function parseTestLadrPortal(raw){
+ const cleanLines=raw.replace(/\r/g,&#x27;\n&#x27;).split(&#x27;\n&#x27;).map(s=&gt;s.replace(/^@@(?:PASSAGE|STEM)@@/,&#x27;&#x27;).trim()).filter(s=&gt;s&amp;&amp;!/^(?:NATIONAL LEVEL|TESTLADR|TestLadr Assessment|Generated on TestLadr|Page \d+ of \d+|GENERAL INSTRUCTIONS|Time Allowed:|Max Marks:|Questions:)/i.test(s));
+ const full=cleanLines.join(&#x27;\n&#x27;);
+ if(!/Q\.\s*1\s*\[\s*Marks\s*:/i.test(full))return null;
+ const heads=[...full.matchAll(/^Q\.\s*(\d+)\s*\[\s*Marks:\s*\+?([\d.]+)\s*,\s*(-?[\d.]+)\s*\]/gmi)];
+ if(!heads.length)return null;
+ const out=[];let section=&#x27;&#x27;;
+ for(let i=0;i&lt;heads.length;i++){
+  const h=heads[i],next=heads[i+1];let block=full.slice(h.index+h[0].length,next?next.index:full.length);
+  const sectionMatch=full.slice(Math.max(0,(heads[i-1]?.index||0)),h.index).match(/SECTION\s*:\s*([^\n]+)/gi);
+  if(sectionMatch)section=sectionMatch[sectionMatch.length-1].replace(/^SECTION\s*:\s*/i,&#x27;&#x27;).trim();
+  block=block.replace(/^\s*SECTION\s*:\s*[^\n]+/gmi,&#x27;&#x27;);
+  const answer=block.match(/\bCorrect\s*Answer\s*:\s*(?:Option\s*)?\(?([A-D])\)?/i);
+  const answerAt=block.search(/\bCorrect\s*Answer\s*:/i);
+  const explanation=block.match(/(?:Detailed\s+Explanation|Solution|Explanation)\s*:\s*([\s\S]*)/i);
+  const before=answerAt&gt;=0?block.slice(0,answerAt):block;
+  // Explicit option labels, including four columns and options split across lines.
+  const optRx=/(?:^|\s)\(\s*([A-D])\s*\)\s*/gm;
+  const hits=[...before.matchAll(optRx)];
+  const v=blank();v[8]=Number(h[2]);v[9]=Math.abs(Number(h[3]));v[13]=section;
+  if(hits.length){
+   v[0]=before.slice(0,hits[0].index).replace(/\s+/g,&#x27; &#x27;).trim();
+   for(let j=0;j&lt;hits.length;j++){
+    const hit=hits[j],end=j+1&lt;hits.length?hits[j+1].index:before.length;
+    v[&#x27;ABCD&#x27;.indexOf(hit[1])+1]+=before.slice(hit.index+hit[0].length,end).replace(/\s+/g,&#x27; &#x27;).trim();
+   }
+  }else v[0]=before.replace(/\s+/g,&#x27; &#x27;).trim();
+  if(answer)v[5]=answer[1].toUpperCase();
+  if(explanation)v[6]=explanation[1].replace(/\s+/g,&#x27; &#x27;).trim();
+  // Remove page boilerplate from text (especially across page breaks).
+  for(let j=0;j&lt;=6;j++)v[j]=String(v[j]||&#x27;&#x27;).replace(/\s+/g,&#x27; &#x27;).trim();
+  const count=v.slice(1,5).filter(Boolean).length;
+  const review=count===4&amp;&amp;v[5]?&#x27;Extracted — verify&#x27;:count===0?&#x27;No labeled options — review&#x27;:&#x27;Incomplete options — review&#x27;;
+  out.push({values:v,number:Number(h[1]),review});
+ }
+ return out;
+}
+
 function parseQuestions(raw){
- const lines=raw.replace(/\r/g,'\n').split('\n').map(x=&gt;x.replace(/^@@(?:PASSAGE|STEM)@@/,'')).map(clean).filter(Boolean);
- const out=[];let item=null,mode='question',section='';const groups=new Map();
- const append=(index,txt)=&gt;{if(!item||!txt)return;item.values[index]+=(item.values[index]?' ':'')+txt};
- const finish=()=&gt;{if(!item)return;const v=item.values;if(v[12]){let k=v[12].replace(/\s+/g,' ').trim();if(!groups.has(k))groups.set(k,'Group '+(groups.size+1));v[11]=groups.get(k)}if(v[0]||v.slice(1,5).some(Boolean)){item.review=!v[0]?'MISSING QUESTION — FIX BEFORE EXPORT':v.slice(1,5).filter(Boolean).length===4?'Extracted — verify':'Incomplete — review';out.push(item)}item=null};
+ const lines=raw.replace(/\r/g,&#x27;\n&#x27;).split(&#x27;\n&#x27;).map(x=&gt;x.replace(/^@@(?:PASSAGE|STEM)@@/,&#x27;&#x27;)).map(clean).filter(Boolean);
+ const out=[];let item=null,mode=&#x27;question&#x27;,section=&#x27;&#x27;;const groups=new Map();
+ const append=(index,txt)=&gt;{if(!item||!txt)return;item.values[index]+=(item.values[index]?&#x27; &#x27;:&#x27;&#x27;)+txt};
+ const finish=()=&gt;{if(!item)return;const v=item.values;if(v[12]){let k=v[12].replace(/\s+/g,&#x27; &#x27;).trim();if(!groups.has(k))groups.set(k,&#x27;Group &#x27;+(groups.size+1));v[11]=groups.get(k)}if(v[0]||v.slice(1,5).some(Boolean)){item.review=!v[0]?&#x27;MISSING QUESTION — FIX BEFORE EXPORT&#x27;:v.slice(1,5).filter(Boolean).length===4?&#x27;Extracted — verify&#x27;:&#x27;Incomplete — review&#x27;;out.push(item)}item=null};
  const heading=/^(?:Q(?:uestion)?\s*[.:-]?\s*)?(\d{1,4})\s*[.):\-]\s*(.*)$/i;
  const qHeading=/^Q(?:uestion)?\s*[.:-]?\s*(\d{1,4})\s*(?:[.):\-]\s*)?(.*)$/i;
  // Recognize OCR spacing such as &quot;A ) 4&quot; and options inline with the stem.
@@ -841,26 +906,37 @@ function parseQuestions(raw){
   const sec=line.match(/^SECTION\s*:\s*(.+?)(?:\s*\(\d+ QUESTIONS\))?$/i);if(sec){finish();section=sec[1].trim();continue}
   const marks=line.match(/^Q\.?\s*(\d{1,4})\s*\[\s*Marks:\s*\+?([\d.]+)\s*,\s*(-?[\d.]+)\s*\]\s*(.*)$/i);
   let q=marks||line.match(qHeading);
-  // Bare '1. question' is accepted only when it looks like a numbered question,
+  // Bare &#x27;1. question&#x27; is accepted only when it looks like a numbered question,
   // never when the parser is inside a passage, explanation or option continuation.
-  if(!q&amp;&amp;(!item||mode==='answer'||mode==='explanation'))q=line.match(heading);
-  if(q){finish();item={values:blank(),review:'',number:+q[1]};item.values[8]=marks?+marks[2]:1;item.values[9]=marks?Math.abs(+marks[3]):0;item.values[13]=section;mode='question';append(0,marks?q[4]:q[2]);continue}
+  if(!q&amp;&amp;(!item||mode===&#x27;answer&#x27;||mode===&#x27;explanation&#x27;))q=line.match(heading);
+  if(q){finish();item={values:blank(),review:&#x27;&#x27;,number:+q[1]};item.values[8]=marks?+marks[2]:1;item.values[9]=marks?Math.abs(+marks[3]):0;item.values[13]=section;mode=&#x27;question&#x27;;append(0,marks?q[4]:q[2]);continue}
   if(!item)continue;
   const answer=line.match(/^(?:Correct\s+Answer|Answer|Ans)\s*[:.\-]\s*(?:Option\s*)?\(?([A-D])\)?/i);
-  if(answer){item.values[5]=answer[1].toUpperCase();mode='answer';continue}
-  if(/^Detailed Explanation\s*:/i.test(line)||/^Explanation\s*:/i.test(line)){mode='explanation';append(6,line.replace(/^(?:Detailed\s+)?Explanation\s*:\s*/i,''));continue}
-  if(/^Read the passage and answer the following question\s*:/i.test(line)){mode='passage';continue}
+  if(answer){item.values[5]=answer[1].toUpperCase();mode=&#x27;answer&#x27;;continue}
+  if(/^Detailed Explanation\s*:/i.test(line)||/^Explanation\s*:/i.test(line)){mode=&#x27;explanation&#x27;;append(6,line.replace(/^(?:Detailed\s+)?Explanation\s*:\s*/i,&#x27;&#x27;));continue}
+  if(/^Read the passage and answer the following question\s*:/i.test(line)){mode=&#x27;passage&#x27;;continue}
   // In TestLadr papers the shared passage begins after the introductory instruction;
   // its final line is followed by the actual interrogative question stem.
-  if(mode==='passage'&amp;&amp;/^(?:What|Which|Who|Whom|Whose|When|Where|Why|How|According to|Based on|Find the|Choose the|The number|If the|In the following|Select the|Identify the)\b/i.test(line)){mode='question'}
-  const hits=(mode!=='explanation'&amp;&amp;mode!=='passage'&amp;&amp;mode!=='answer')?[...line.matchAll(optRegex)]:[];
+  if(mode===&#x27;passage&#x27;&amp;&amp;/^(?:What|Which|Who|Whom|Whose|When|Where|Why|How|According to|Based on|Find the|Choose the|The number|If the|In the following|Select the|Identify the|The author|The primary|The passage|It can|It is|From the|The most|The main|The central|The following|The writer|This passage|The statement|The argument|In light of|Based upon)\b/i.test(line)){mode=&#x27;question&#x27;}
+  // Options are authoritative even when the passage/question boundary is ambiguous.
+  // A passage can finish with &#x27;The primary purpose...&#x27; or &#x27;It can be inferred...&#x27;,
+  // so never discard an explicit (A)/(B)/(C)/(D) marker while in passage mode.
+  const hits=(mode!==&#x27;explanation&#x27;&amp;&amp;mode!==&#x27;answer&#x27;)?[...line.matchAll(optRegex)]:[];
+  if(mode===&#x27;passage&#x27;&amp;&amp;hits.length){
+    // Move the final question sentence out of passage, preserving earlier shared text.
+    const passage=String(item.values[12]||&#x27;&#x27;);
+    const starts=/(?:^|\s)(?:The primary|The author|The passage|The main|The central|It can|It is|Which|What|Who|Why|How|According to|Based on|From the|The most|The following|The writer|This passage|The statement|The argument|In light of|Based upon)\b/gi;
+    let m,last=null;while((m=starts.exec(passage))!==null)last=m;
+    if(last&amp;&amp;last.index&gt;0){item.values[0]=(item.values[0]+&#x27; &#x27;+passage.slice(last.index).trim()).trim();item.values[12]=passage.slice(0,last.index).trim()}
+    mode=&#x27;question&#x27;;
+  }
   if(hits.length&amp;&amp;(hits.length&gt;=2||/^\(?\s*[A-D]\s*[).]/i.test(line)||/^option[1-4]$/.test(mode))){
    const prefix=line.slice(0,hits[0].index).trim();if(prefix){if(/^option[1-4]$/.test(mode))append(+mode.slice(-1),prefix);else append(0,prefix)}
-   for(let j=0;j&lt;hits.length;j++){const h=hits[j],next=j+1&lt;hits.length?hits[j+1].index:line.length;const k='ABCD'.indexOf((h[1]||h[2]).toUpperCase())+1;append(k,line.slice(h.index+h[0].length,next).trim());mode='option'+k}continue;
+   for(let j=0;j&lt;hits.length;j++){const h=hits[j],next=j+1&lt;hits.length?hits[j+1].index:line.length;const k=&#x27;ABCD&#x27;.indexOf((h[1]||h[2]).toUpperCase())+1;append(k,line.slice(h.index+h[0].length,next).trim());mode=&#x27;option&#x27;+k}continue;
   }
-  if(mode==='passage'){append(12,line);continue}
-  if(mode==='explanation'){append(6,line);continue}
-  if(mode==='answer')continue;
+  if(mode===&#x27;passage&#x27;){append(12,line);continue}
+  if(mode===&#x27;explanation&#x27;){append(6,line);continue}
+  if(mode===&#x27;answer&#x27;)continue;
   if(/^option[1-4]$/.test(mode)){append(+mode.slice(-1),line);continue}
   append(0,line);
  }
@@ -870,28 +946,28 @@ function parseQuestions(raw){
 function parseCBSETablePages(tablePages){
  // Spatial table parser: use question-number column as anchors, and option labels
  // in the content column. PDF text ordering is not the same as table row ordering.
- const out=[];let section='',group='',lastGroup='';
- const norm=s=&gt;String(s||'').replace(/\s+/g,' ').trim();
+ const out=[];let section=&#x27;&#x27;,group=&#x27;&#x27;,lastGroup=&#x27;&#x27;;
+ const norm=s=&gt;String(s||&#x27;&#x27;).replace(/\s+/g,&#x27; &#x27;).trim();
  const optionRx=/^\(?([a-d])\s*[).]\s*(.*)$/i;
  const isJunk=s=&gt;/^(?:Page\s+\d+\s+of|CBSE\s*\||RETAIL\s*\(|Sample Question Paper|General Instructions|Max\.|Answer any\s+\d+|Answer each question|SECTION\s+[AB])/i.test(s);
  for(const page of tablePages){
   const ls=page.map(l=&gt;({y:l.y,items:l.items.filter(t=&gt;norm(t.str)).sort((a,b)=&gt;a.x-b.x)}))
-   .map(l=&gt;({...l,text:norm(l.items.map(t=&gt;t.str).join(' ')),left:norm(l.items.filter(t=&gt;t.x&lt;91).map(t=&gt;t.str).join(' ')),body:norm(l.items.filter(t=&gt;t.x&gt;=91&amp;&amp;t.x&lt;510).map(t=&gt;t.str).join(' '))}))
+   .map(l=&gt;({...l,text:norm(l.items.map(t=&gt;t.str).join(&#x27; &#x27;)),left:norm(l.items.filter(t=&gt;t.x&lt;91).map(t=&gt;t.str).join(&#x27; &#x27;)),body:norm(l.items.filter(t=&gt;t.x&gt;=91&amp;&amp;t.x&lt;510).map(t=&gt;t.str).join(&#x27; &#x27;))}))
    .filter(l=&gt;l.text).sort((a,b)=&gt;b.y-a.y);
   const anchors=[];
   for(let i=0;i&lt;ls.length;i++){
    const l=ls[i];
-   if(/SECTION\s+A\s*:\s*OBJECTIVE TYPE QUESTIONS/i.test(l.text)){section='A';continue}
-   if(/SECTION\s+B\s*:\s*SUBJECTIVE TYPE QUESTIONS/i.test(l.text)){section='B';continue}
+   if(/SECTION\s+A\s*:\s*OBJECTIVE TYPE QUESTIONS/i.test(l.text)){section=&#x27;A&#x27;;continue}
+   if(/SECTION\s+B\s*:\s*SUBJECTIVE TYPE QUESTIONS/i.test(l.text)){section=&#x27;B&#x27;;continue}
    if(!section)continue;
    const h=l.text.match(/^Q\.?\s*([1-5])\s+Answer\s+any\b/i);
-   if(section==='A'&amp;&amp;h){group='Q'+h[1];lastGroup=group;continue}
-   if(section==='A'){
+   if(section===&#x27;A&#x27;&amp;&amp;h){group=&#x27;Q&#x27;+h[1];lastGroup=group;continue}
+   if(section===&#x27;A&#x27;){
     const n=l.left.match(/^(\d{1,2})\s*\.\s*$/);
     if(n)anchors.push({idx:i,n:+n[1],group,section});
    }else{
     const n=l.left.match(/^Q\.?\s*(\d{1,2})\s*$/i);
-    if(n)anchors.push({idx:i,n:+n[1],group:'',section});
+    if(n)anchors.push({idx:i,n:+n[1],group:&#x27;&#x27;,section});
    }
   }
   // Group headers may appear on the same visual line as their content;
@@ -901,7 +977,7 @@ function parseCBSETablePages(tablePages){
   for(let k=0;k&lt;anchors.length;k++){
    const curr=anchors[k],prev=k?anchors[k-1]:null;
    let from=prev?prev.idx+1:0;
-   // After the preceding row's last option, the next ordinary body line is
+   // After the preceding row&#x27;s last option, the next ordinary body line is
    // the start of the current row, even when the number is vertically centered.
    let lastOption=-1;
    for(let j=from;j&lt;=curr.idx;j++)if(optionRx.test(ls[j].body)&amp;&amp;/^\(?d\s*[).]/i.test(ls[j].body))lastOption=j;
@@ -919,143 +995,143 @@ function parseCBSETablePages(tablePages){
   }
   for(let k=0;k&lt;anchors.length;k++){
    const a=anchors[k],start=starts[k],end=k+1&lt;anchors.length?starts[k+1]:ls.length;
-   const obj={values:blank(),review:'',number:a.n};const v=obj.values;
-   v[8]=a.section==='B'?(a.n&gt;=17?4:2):1;v[9]=0;v[7]='Single';v[11]=a.section==='A'?a.group:'';v[13]='Section '+a.section;
+   const obj={values:blank(),review:&#x27;&#x27;,number:a.n};const v=obj.values;
+   v[8]=a.section===&#x27;B&#x27;?(a.n&gt;=17?4:2):1;v[9]=0;v[7]=&#x27;Single&#x27;;v[11]=a.section===&#x27;A&#x27;?a.group:&#x27;&#x27;;v[13]=&#x27;Section &#x27;+a.section;
    let opt=0;
    for(let j=start;j&lt;end;j++){
     const l=ls[j];if(!l.body||isJunk(l.text)||/^Q\.?\s*[1-5]\s+Answer/i.test(l.text))continue;
     const m=l.body.match(optionRx);
-    if(m){opt='ABCD'.indexOf(m[1].toUpperCase())+1;if(opt&gt;0)v[opt]+=(v[opt]?' ':'')+m[2];continue}
+    if(m){opt=&#x27;ABCD&#x27;.indexOf(m[1].toUpperCase())+1;if(opt&gt;0)v[opt]+=(v[opt]?&#x27; &#x27;:&#x27;&#x27;)+m[2];continue}
     // A body continuation aligned with the option column belongs to that option.
     const first=Math.min(...l.items.filter(t=&gt;t.x&gt;=91&amp;&amp;t.x&lt;510).map(t=&gt;t.x));
     const target=opt&amp;&amp;first&gt;=108?opt:0;
-    v[target]+=(v[target]?' ':'')+l.body;
+    v[target]+=(v[target]?&#x27; &#x27;:&#x27;&#x27;)+l.body;
     if(target===0)opt=0;
    }
    for(let j=0;j&lt;5;j++)v[j]=norm(v[j]);
-   if(v[0]){obj.review=v.slice(1,5).every(Boolean)?'Extracted — verify':v.slice(1,5).some(Boolean)?'Incomplete options — review':'No options / subjective — review';out.push(obj)}
+   if(v[0]){obj.review=v.slice(1,5).every(Boolean)?&#x27;Extracted — verify&#x27;:v.slice(1,5).some(Boolean)?&#x27;Incomplete options — review&#x27;:&#x27;No options / subjective — review&#x27;;out.push(obj)}
   }
  }
  return out;
 }
-async function extract(){const successBox=$('conversionSuccess');successBox.hidden=true;successBox.textContent='';const file=$('pdfFile').files[0];if(!file){status('Please choose a PDF file.');return}if(!window.pdfjsLib||!window.XLSX){status('PDF/Excel libraries could not load. Check internet access.');return}currentFile=file.name.replace(/\.pdf$/i,'');status('Reading PDF pages…');$('extractBtn').disabled=true;
- try{pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;const pages=[];const tablePages=[];let scans=[];let ocrUsed=[];
+async function extract(){const successBox=$(&#x27;conversionSuccess&#x27;);successBox.hidden=true;successBox.textContent=&#x27;&#x27;;const file=$(&#x27;pdfFile&#x27;).files[0];if(!file){status(&#x27;Please choose a PDF file.&#x27;);return}if(!window.pdfjsLib||!window.XLSX){status(&#x27;PDF/Excel libraries could not load. Check internet access.&#x27;);return}currentFile=file.name.replace(/\.pdf$/i,&#x27;&#x27;);status(&#x27;Reading PDF pages…&#x27;);$(&#x27;extractBtn&#x27;).disabled=true;
+ try{pdfjsLib.GlobalWorkerOptions.workerSrc=&#x27;https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js&#x27;;const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;const pages=[];const tablePages=[];let scans=[];let ocrUsed=[];
  for(let p=1;p&lt;=pdf.numPages;p++){const pg=await pdf.getPage(p),content=await pg.getTextContent();const entries=content.items.filter(t=&gt;t.str&amp;&amp;t.str.trim()).map(t=&gt;({x:t.transform[4],y:t.transform[5],str:t.str}));const groups=[];
- // Reconstruct visual lines by position, not by PDF's arbitrary text-item order.
+ // Reconstruct visual lines by position, not by PDF&#x27;s arbitrary text-item order.
  for(const t of entries){let g=groups.find(z=&gt;Math.abs(z.y-t.y)&lt;4.0);if(!g){g={y:t.y,items:[]};groups.push(g)}g.items.push(t)}
- groups.sort((a,b)=&gt;b.y-a.y);tablePages.push(groups.map(g=&gt;({y:g.y,items:g.items.map(t=&gt;({x:t.x,str:t.str}))})));const lines=groups.map(g=&gt;{const x=Math.min(...g.items.map(t=&gt;t.x));const value=g.items.sort((a,b)=&gt;a.x-b.x).map(t=&gt;t.str).join(' ').replace(/\s+/g,' ').trim();return (x&gt;=45 &amp;&amp; x&lt;80?'@@PASSAGE@@':x&lt;45?'@@STEM@@':'')+value;}).filter(Boolean);
- let txt=lines.join('\n');
+ groups.sort((a,b)=&gt;b.y-a.y);tablePages.push(groups.map(g=&gt;({y:g.y,items:g.items.map(t=&gt;({x:t.x,str:t.str}))})));const lines=groups.map(g=&gt;{const x=Math.min(...g.items.map(t=&gt;t.x));const value=g.items.sort((a,b)=&gt;a.x-b.x).map(t=&gt;t.str).join(&#x27; &#x27;).replace(/\s+/g,&#x27; &#x27;).trim();return (x&gt;=45 &amp;&amp; x&lt;80?&#x27;@@PASSAGE@@&#x27;:x&lt;45?&#x27;@@STEM@@&#x27;:&#x27;&#x27;)+value;}).filter(Boolean);
+ let txt=lines.join(&#x27;\n&#x27;);
  if(txt.length&lt;25){
-   scans.push(p);status('Page '+p+' has no selectable text. Trying OCR…');
+   scans.push(p);status(&#x27;Page &#x27;+p+&#x27; has no selectable text. Trying OCR…&#x27;);
    try{
-     if(!window.Tesseract){await new Promise((resolve,reject)=&gt;{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';sc.onload=resolve;sc.onerror=()=&gt;reject(Error('OCR library could not load'));document.head.appendChild(sc)})}
-     const viewport=pg.getViewport({scale:3});const canvas=document.createElement('canvas');canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);await pg.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
-     const result=await Tesseract.recognize(canvas,'eng');txt=result.data.text||'';if(txt.trim().length&gt;=10)ocrUsed.push(p);
-   }catch(e){status('OCR failed on page '+p+': '+e.message)}
+     if(!window.Tesseract){await new Promise((resolve,reject)=&gt;{const sc=document.createElement(&#x27;script&#x27;);sc.src=&#x27;https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js&#x27;;sc.onload=resolve;sc.onerror=()=&gt;reject(Error(&#x27;OCR library could not load&#x27;));document.head.appendChild(sc)})}
+     const viewport=pg.getViewport({scale:3});const canvas=document.createElement(&#x27;canvas&#x27;);canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);await pg.render({canvasContext:canvas.getContext(&#x27;2d&#x27;),viewport}).promise;
+     const result=await Tesseract.recognize(canvas,&#x27;eng&#x27;);txt=result.data.text||&#x27;&#x27;;if(txt.trim().length&gt;=10)ocrUsed.push(p);
+   }catch(e){status(&#x27;OCR failed on page &#x27;+p+&#x27;: &#x27;+e.message)}
  }
  pages.push(txt);}
- const joined=pages.join('\n');const isCBSETable=/RETAIL\s*\(SUBJECT CODE\s*-\s*401\)/i.test(joined)&amp;&amp;/OBJECTIVE TYPE QUESTIONS/i.test(joined);const found=isCBSETable?parseCBSETablePages(tablePages):parseQuestions(joined);rows.splice(0,rows.length,...found);render();
+ const joined=pages.join(&#x27;\n&#x27;);const isCBSETable=/RETAIL\s*\(SUBJECT CODE\s*-\s*401\)/i.test(joined)&amp;&amp;/OBJECTIVE TYPE QUESTIONS/i.test(joined);const found=parseTestLadrJee(joined)||parseTestLadrPortal(joined)||(isCBSETable?parseCBSETablePages(tablePages):parseQuestions(joined));rows.splice(0,rows.length,...found);render();
  if(rows.length){
    // Clear the selected upload only after successful extraction; the original PDF on the device is untouched.
-   $('pdfFile').value='';
+   $(&#x27;pdfFile&#x27;).value=&#x27;&#x27;;
    successBox.hidden=false;
-   successBox.textContent='✓ Extracted '+rows.length+' questions from '+pdf.numPages+' pages. '+rows.filter(r=&gt;!String(r.values[0]||'').trim()).length+' have missing question text. The PDF selection is cleared; review all rows before Excel export.';
-   status('Extracted '+rows.length+' questions. '+rows.filter(r=&gt;!String(r.values[0]||'').trim()).length+' missing question stems; check preview before export.'+(scans.length?' Image-only pages: '+scans.join(', ')+'; OCR attempted.':''));
- }else{status('No questions detected. The PDF remains selected so you can retry.'+(scans.length?' OCR required for pages: '+scans.join(', ')+'.':''));}
- }catch(e){status('PDF extraction failed: '+e.message)}finally{$('extractBtn').disabled=false}
+   successBox.textContent=&#x27;✓ Extracted &#x27;+rows.length+&#x27; questions from &#x27;+pdf.numPages+&#x27; pages. &#x27;+rows.filter(r=&gt;!String(r.values[0]||&#x27;&#x27;).trim()).length+&#x27; missing question text; &#x27;+rows.filter(r=&gt;r.values[7]!==&#x27;Numerical&#x27;&amp;&amp;r.values.slice(1,5).some(Boolean)&amp;&amp;r.values.slice(1,5).filter(Boolean).length&lt;4).length+&#x27; questions have incomplete options. Review highlighted rows before Excel export.&#x27;;
+   status(&#x27;Extracted &#x27;+rows.length+&#x27; questions. &#x27;+rows.filter(r=&gt;!String(r.values[0]||&#x27;&#x27;).trim()).length+&#x27; missing question stems; check preview before export.&#x27;+(scans.length?&#x27; Image-only pages: &#x27;+scans.join(&#x27;, &#x27;)+&#x27;; OCR attempted.&#x27;:&#x27;&#x27;));
+ }else{status(&#x27;No questions detected. The PDF remains selected so you can retry.&#x27;+(scans.length?&#x27; OCR required for pages: &#x27;+scans.join(&#x27;, &#x27;)+&#x27;.&#x27;:&#x27;&#x27;));}
+ }catch(e){status(&#x27;PDF extraction failed: &#x27;+e.message)}finally{$(&#x27;extractBtn&#x27;).disabled=false}
 }
-$('pdfFile').addEventListener('change',()=&gt;{if($('pdfFile').files.length){rows.splice(0,rows.length);render();$('conversionSuccess').hidden=true;$('conversionSuccess').textContent='';status('New PDF selected. Click Extract questions to convert it.');}});
-$('extractBtn').onclick=extract;
-$('download').onclick=()=&gt;{if(!rows.length)return;const missing=rows.filter(r=&gt;!String(r.values[0]||'').trim());if(missing.length){status('Cannot export: '+missing.length+' question(s) have missing question text. Please correct highlighted rows first.');alert('Excel export blocked: '+missing.length+' question(s) are missing question text. Please correct them before downloading.');return;}const ws=XLSX.utils.aoa_to_sheet([HEADERS,...rows.map(r=&gt;r.values)]);ws['!cols']=[{wch:65},{wch:24},{wch:24},{wch:24},{wch:24},{wch:18},{wch:65},{wch:18},{wch:10},{wch:18},{wch:18},{wch:20},{wch:65},{wch:25}];const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Sheet1');XLSX.writeFile(wb,currentFile+' - TestLadr Converted.xlsx')};
-$('optionsBtn').onclick=async()=&gt;{
- const pending=rows.map((r,i)=&gt;({i,question:r.values[0],options:r.values.slice(1,5),answer:r.values[5],explanation:r.values[6],passage:r.values[12]})).filter(q=&gt;q.question&amp;&amp;q.options.some(v=&gt;!String(v||'').trim()));
- if(!pending.length){status('No missing option fields detected.');return}
+$(&#x27;pdfFile&#x27;).addEventListener(&#x27;change&#x27;,()=&gt;{if($(&#x27;pdfFile&#x27;).files.length){rows.splice(0,rows.length);render();$(&#x27;conversionSuccess&#x27;).hidden=true;$(&#x27;conversionSuccess&#x27;).textContent=&#x27;&#x27;;status(&#x27;New PDF selected. Click Extract questions to convert it.&#x27;);}});
+$(&#x27;extractBtn&#x27;).onclick=extract;
+$(&#x27;download&#x27;).onclick=()=&gt;{if(!rows.length)return;const missing=rows.filter(r=&gt;!String(r.values[0]||&#x27;&#x27;).trim());if(missing.length){status(&#x27;Cannot export: &#x27;+missing.length+&#x27; question(s) have missing question text. Please correct highlighted rows first.&#x27;);alert(&#x27;Excel export blocked: &#x27;+missing.length+&#x27; question(s) are missing question text. Please correct them before downloading.&#x27;);return;}const ws=XLSX.utils.aoa_to_sheet([HEADERS,...rows.map(r=&gt;r.values)]);ws[&#x27;!cols&#x27;]=[{wch:65},{wch:24},{wch:24},{wch:24},{wch:24},{wch:18},{wch:65},{wch:18},{wch:10},{wch:18},{wch:18},{wch:20},{wch:65},{wch:25}];const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,&#x27;Sheet1&#x27;);XLSX.writeFile(wb,currentFile+&#x27; - TestLadr Converted.xlsx&#x27;)};
+$(&#x27;optionsBtn&#x27;).onclick=async()=&gt;{
+ const pending=rows.map((r,i)=&gt;({i,question:r.values[0],options:r.values.slice(1,5),answer:r.values[5],explanation:r.values[6],passage:r.values[12]})).filter(q=&gt;q.question&amp;&amp;q.options.some(v=&gt;!String(v||&#x27;&#x27;).trim()));
+ if(!pending.length){status(&#x27;No missing option fields detected.&#x27;);return}
  const sessionClient=window.parent?.testladrSupabaseClient||client;
- if(!sessionClient){status('Sign in to use AI option generation.');return}
- $('optionsBtn').disabled=true;let done=0,filled=0;
+ if(!sessionClient){status(&#x27;Sign in to use AI option generation.&#x27;);return}
+ $(&#x27;optionsBtn&#x27;).disabled=true;let done=0,filled=0;
  try{
   const {data:{session},error:sessionError}=await sessionClient.auth.getSession();
-  if(sessionError||!session?.access_token)throw Error('Sign in again to generate options.');
+  if(sessionError||!session?.access_token)throw Error(&#x27;Sign in again to generate options.&#x27;);
   for(let offset=0;offset&lt;pending.length;offset+=15){
-   const batch=pending.slice(offset,offset+15);status('Generating missing options: '+done+' / '+pending.length+' reviewed…');
-   const {data,error}=await sessionClient.functions.invoke('generate-paper-answers',{body:{mode:'options',questions:batch},headers:{Authorization:'Bearer '+session.access_token}});
+   const batch=pending.slice(offset,offset+15);status(&#x27;Generating missing options: &#x27;+done+&#x27; / &#x27;+pending.length+&#x27; reviewed…&#x27;);
+   const {data,error}=await sessionClient.functions.invoke(&#x27;generate-paper-answers&#x27;,{body:{mode:&#x27;options&#x27;,questions:batch},headers:{Authorization:&#x27;Bearer &#x27;+session.access_token}});
    if(error){let msg=error.message||String(error);try{const d=await error.context?.json();msg=d?.error||msg}catch{}throw Error(msg)}
-   if(!Array.isArray(data?.results))throw Error(data?.error||'Function returned no option results. Deploy the updated Edge Function.');
-   for(const result of data.results){const row=rows[result.i];if(!row||!Array.isArray(result.options))continue;for(let j=0;j&lt;4;j++){const proposed=String(result.options[j]||'').trim();if(!row.values[j+1]&amp;&amp;proposed){row.values[j+1]=proposed;filled++}}row.review='AI-created options — VERIFY against PDF';}
+   if(!Array.isArray(data?.results))throw Error(data?.error||&#x27;Function returned no option results. Deploy the updated Edge Function.&#x27;);
+   for(const result of data.results){const row=rows[result.i];if(!row||!Array.isArray(result.options))continue;for(let j=0;j&lt;4;j++){const proposed=String(result.options[j]||&#x27;&#x27;).trim();if(!row.values[j+1]&amp;&amp;proposed){row.values[j+1]=proposed;filled++}}row.review=&#x27;AI-created options — VERIFY against PDF&#x27;;}
    done+=batch.length;render();
   }
-  status('Filled '+filled+' missing option fields. AI-created options are NOT recovered PDF text. Verify every option and answer before publishing.');
- }catch(e){status('Option generation failed: '+e.message+'; deploy the updated generate-paper-answers Edge Function and configure OPENAI_API_KEY.');}
+  status(&#x27;Filled &#x27;+filled+&#x27; missing option fields. AI-created options are NOT recovered PDF text. Verify every option and answer before publishing.&#x27;);
+ }catch(e){status(&#x27;Option generation failed: &#x27;+e.message+&#x27;; deploy the updated generate-paper-answers Edge Function and configure OPENAI_API_KEY.&#x27;);}
  finally{render()}
 };
-$('aiBtn').onclick=async()=&gt;{
- const pending=rows.map((r,i)=&gt;({i,question:r.values[0],options:r.values.slice(1,5),answer:r.values[5],explanation:r.values[6],passage:r.values[12],questionType:r.values[7]})).filter(x=&gt;String(x.question||'').trim()&amp;&amp;(!String(x.answer||'').trim()||!String(x.explanation||'').trim()));
- if(!pending.length){status('All detected questions already have answers and explanations.');return}
+$(&#x27;aiBtn&#x27;).onclick=async()=&gt;{
+ const pending=rows.map((r,i)=&gt;({i,question:r.values[0],options:r.values.slice(1,5),answer:r.values[5],explanation:r.values[6],passage:r.values[12],questionType:r.values[7]})).filter(x=&gt;String(x.question||&#x27;&#x27;).trim()&amp;&amp;(!String(x.answer||&#x27;&#x27;).trim()||!String(x.explanation||&#x27;&#x27;).trim()));
+ if(!pending.length){status(&#x27;All detected questions already have answers and explanations.&#x27;);return}
  const sessionClient=window.parent?.testladrSupabaseClient||client;
- if(!sessionClient){status('Sign in to use AI generation.');return}
- $('aiBtn').disabled=true;
- let attempts=0,filledAnswers=0,filledExplanations=0;const unresolved=new Set(pending.map(x=&gt;x.i));let failure='';
+ if(!sessionClient){status(&#x27;Sign in to use AI generation.&#x27;);return}
+ $(&#x27;aiBtn&#x27;).disabled=true;
+ let attempts=0,filledAnswers=0,filledExplanations=0;const unresolved=new Set(pending.map(x=&gt;x.i));let failure=&#x27;&#x27;;
  try{
   const {data:{session},error:sessionError}=await sessionClient.auth.getSession();
-  if(sessionError||!session?.access_token)throw Error('Sign in again to use AI generation.');
+  if(sessionError||!session?.access_token)throw Error(&#x27;Sign in again to use AI generation.&#x27;);
   // Retry incomplete results in smaller batches; never count a request as success.
   for(let pass=0;pass&lt;3&amp;&amp;unresolved.size;pass++){
    const todo=pending.filter(q=&gt;unresolved.has(q.i));
    const batchSize=pass===0?6:(pass===1?3:1);
    for(let offset=0;offset&lt;todo.length;offset+=batchSize){
     const batch=todo.slice(offset,offset+batchSize);
-    status('AI pass '+(pass+1)+'/3: '+unresolved.size+' question(s) incomplete; '+attempts+' requests processed…');
+    status(&#x27;AI pass &#x27;+(pass+1)+&#x27;/3: &#x27;+unresolved.size+&#x27; question(s) incomplete; &#x27;+attempts+&#x27; requests processed…&#x27;);
     try{
-     const {data,error}=await sessionClient.functions.invoke('generate-paper-answers',{body:{mode:'answers',questions:batch},headers:{Authorization:'Bearer '+session.access_token}});
+     const {data,error}=await sessionClient.functions.invoke(&#x27;generate-paper-answers&#x27;,{body:{mode:&#x27;answers&#x27;,questions:batch},headers:{Authorization:&#x27;Bearer &#x27;+session.access_token}});
      if(error){let detail=error.message||String(error);try{const payload=await error.context?.json();detail=payload?.error||detail}catch{}throw Error(detail)}
-     if(!Array.isArray(data?.results))throw Error(data?.error||'AI service returned no results.');
+     if(!Array.isArray(data?.results))throw Error(data?.error||&#x27;AI service returned no results.&#x27;);
      for(const x of data.results){
       const row=rows[x.i];if(!row||!batch.some(q=&gt;q.i===x.i))continue;
-      const answer=String(x.answer||'').trim(),explanation=String(x.explanation||'').trim();
-      const hasOptions=row.values.slice(1,5).every(v=&gt;String(v||'').trim());
-      if(!String(row.values[5]||'').trim()&amp;&amp;answer){
+      const answer=String(x.answer||&#x27;&#x27;).trim(),explanation=String(x.explanation||&#x27;&#x27;).trim();
+      const hasOptions=row.values.slice(1,5).every(v=&gt;String(v||&#x27;&#x27;).trim());
+      if(!String(row.values[5]||&#x27;&#x27;).trim()&amp;&amp;answer){
        if(!hasOptions||/^[A-D]$/i.test(answer)){row.values[5]=/^[A-D]$/i.test(answer)?answer.toUpperCase():answer;filledAnswers++}
       }
-      if(!String(row.values[6]||'').trim()&amp;&amp;explanation){row.values[6]=explanation;filledExplanations++}
-      if(String(row.values[5]||'').trim()&amp;&amp;String(row.values[6]||'').trim())unresolved.delete(x.i);
+      if(!String(row.values[6]||&#x27;&#x27;).trim()&amp;&amp;explanation){row.values[6]=explanation;filledExplanations++}
+      if(String(row.values[5]||&#x27;&#x27;).trim()&amp;&amp;String(row.values[6]||&#x27;&#x27;).trim())unresolved.delete(x.i);
      }
     }catch(e){failure=String(e.message||e)}
     attempts++;render();
    }
   }
   const unresolvedList=[...unresolved].map(i=&gt;i+1);
-  status('AI made '+attempts+' requests; filled '+filledAnswers+' answers and '+filledExplanations+' explanations. '+unresolved.size+' question(s) still need review'+(unresolvedList.length?': rows '+unresolvedList.slice(0,35).join(', ')+(unresolvedList.length&gt;35?'…':''):'')+'.'+(failure?' Last error: '+failure:'')+' Check answers before export.');
- }catch(e){status('AI generation could not start: '+e.message)}
- finally{render();$('aiBtn').disabled=!rows.length}
+  status(&#x27;AI made &#x27;+attempts+&#x27; requests; filled &#x27;+filledAnswers+&#x27; answers and &#x27;+filledExplanations+&#x27; explanations. &#x27;+unresolved.size+&#x27; question(s) still need review&#x27;+(unresolvedList.length?&#x27;: rows &#x27;+unresolvedList.slice(0,35).join(&#x27;, &#x27;)+(unresolvedList.length&gt;35?&#x27;…&#x27;:&#x27;&#x27;):&#x27;&#x27;)+&#x27;.&#x27;+(failure?&#x27; Last error: &#x27;+failure:&#x27;&#x27;)+&#x27; Check answers before export.&#x27;);
+ }catch(e){status(&#x27;AI generation could not start: &#x27;+e.message)}
+ finally{render();$(&#x27;aiBtn&#x27;).disabled=!rows.length}
 };
 render();
 &lt;/script&gt;&lt;script id=&quot;testladr-view-toggle-script&quot;&gt;
 (function(){
-const card=document.getElementById('cardViewBtn');
-const table=document.getElementById('tableViewBtn');
+const card=document.getElementById(&#x27;cardViewBtn&#x27;);
+const table=document.getElementById(&#x27;tableViewBtn&#x27;);
 if(!card||!table)return;
 function setView(mode){
-const isTable=mode==='table';
-document.body.classList.toggle('testladr-table-view',isTable);
-card.classList.toggle('is-active',!isTable);
-table.classList.toggle('is-active',isTable);
-card.setAttribute('aria-pressed',String(!isTable));
-table.setAttribute('aria-pressed',String(isTable));
+const isTable=mode===&#x27;table&#x27;;
+document.body.classList.toggle(&#x27;testladr-table-view&#x27;,isTable);
+card.classList.toggle(&#x27;is-active&#x27;,!isTable);
+table.classList.toggle(&#x27;is-active&#x27;,isTable);
+card.setAttribute(&#x27;aria-pressed&#x27;,String(!isTable));
+table.setAttribute(&#x27;aria-pressed&#x27;,String(isTable));
 }
-card.addEventListener('click',()=&gt;setView('cards'));
-table.addEventListener('click',()=&gt;setView('table'));
-setView('cards');
+card.addEventListener(&#x27;click&#x27;,()=&gt;setView(&#x27;cards&#x27;));
+table.addEventListener(&#x27;click&#x27;,()=&gt;setView(&#x27;table&#x27;));
+setView(&#x27;cards&#x27;);
 })();
 &lt;/script&gt;&lt;script&gt;
 (function(){
-const wrap=document.querySelector('.tablewrap');const track=document.getElementById('tableScrollTrack');const thumb=document.getElementById('tableScrollThumb');const prev=document.getElementById('tableScrollLeft');const next=document.getElementById('tableScrollRight');
+const wrap=document.querySelector(&#x27;.tablewrap&#x27;);const track=document.getElementById(&#x27;tableScrollTrack&#x27;);const thumb=document.getElementById(&#x27;tableScrollThumb&#x27;);const prev=document.getElementById(&#x27;tableScrollLeft&#x27;);const next=document.getElementById(&#x27;tableScrollRight&#x27;);
 if(!wrap||!track||!thumb||!prev||!next)return;
-function update(){const max=Math.max(0,wrap.scrollWidth-wrap.clientWidth);const ratio=wrap.scrollWidth?Math.min(1,wrap.clientWidth/wrap.scrollWidth):1;const travel=track.clientWidth*(1-ratio);thumb.style.width=(ratio*100)+'%';thumb.style.left=(max?wrap.scrollLeft/max*travel:0)+'px';track.setAttribute('aria-valuenow',String(max?Math.round(wrap.scrollLeft/max*100):0));prev.disabled=wrap.scrollLeft&lt;=1;next.disabled=wrap.scrollLeft&gt;=max-1;}
-prev.addEventListener('click',()=&gt;wrap.scrollBy({left:-Math.max(220,wrap.clientWidth*.65),behavior:'smooth'}));next.addEventListener('click',()=&gt;wrap.scrollBy({left:Math.max(220,wrap.clientWidth*.65),behavior:'smooth'}));
+function update(){const max=Math.max(0,wrap.scrollWidth-wrap.clientWidth);const ratio=wrap.scrollWidth?Math.min(1,wrap.clientWidth/wrap.scrollWidth):1;const travel=track.clientWidth*(1-ratio);thumb.style.width=(ratio*100)+&#x27;%&#x27;;thumb.style.left=(max?wrap.scrollLeft/max*travel:0)+&#x27;px&#x27;;track.setAttribute(&#x27;aria-valuenow&#x27;,String(max?Math.round(wrap.scrollLeft/max*100):0));prev.disabled=wrap.scrollLeft&lt;=1;next.disabled=wrap.scrollLeft&gt;=max-1;}
+prev.addEventListener(&#x27;click&#x27;,()=&gt;wrap.scrollBy({left:-Math.max(220,wrap.clientWidth*.65),behavior:&#x27;smooth&#x27;}));next.addEventListener(&#x27;click&#x27;,()=&gt;wrap.scrollBy({left:Math.max(220,wrap.clientWidth*.65),behavior:&#x27;smooth&#x27;}));
 function moveTo(clientX){const rect=track.getBoundingClientRect();const max=Math.max(0,wrap.scrollWidth-wrap.clientWidth);const ratio=wrap.scrollWidth?Math.min(1,wrap.clientWidth/wrap.scrollWidth):1;const travel=rect.width*(1-ratio);wrap.scrollLeft=max*Math.max(0,Math.min(1,(clientX-rect.left-thumb.clientWidth/2)/Math.max(1,travel)));}
-let dragging=false;track.addEventListener('pointerdown',e=&gt;{dragging=true;track.setPointerCapture(e.pointerId);moveTo(e.clientX)});track.addEventListener('pointermove',e=&gt;{if(dragging)moveTo(e.clientX)});track.addEventListener('pointerup',()=&gt;dragging=false);track.addEventListener('pointercancel',()=&gt;dragging=false);
-track.addEventListener('keydown',e=&gt;{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();wrap.scrollLeft+=(e.key==='ArrowRight'?1:-1)*100;}});
-wrap.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);new MutationObserver(update).observe(wrap,{childList:true,subtree:true});document.getElementById('tableViewBtn')?.addEventListener('click',()=&gt;requestAnimationFrame(update));update();
+let dragging=false;track.addEventListener(&#x27;pointerdown&#x27;,e=&gt;{dragging=true;track.setPointerCapture(e.pointerId);moveTo(e.clientX)});track.addEventListener(&#x27;pointermove&#x27;,e=&gt;{if(dragging)moveTo(e.clientX)});track.addEventListener(&#x27;pointerup&#x27;,()=&gt;dragging=false);track.addEventListener(&#x27;pointercancel&#x27;,()=&gt;dragging=false);
+track.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;ArrowRight&#x27;||e.key===&#x27;ArrowLeft&#x27;){e.preventDefault();wrap.scrollLeft+=(e.key===&#x27;ArrowRight&#x27;?1:-1)*100;}});
+wrap.addEventListener(&#x27;scroll&#x27;,update,{passive:true});window.addEventListener(&#x27;resize&#x27;,update);new MutationObserver(update).observe(wrap,{childList:true,subtree:true});document.getElementById(&#x27;tableViewBtn&#x27;)?.addEventListener(&#x27;click&#x27;,()=&gt;requestAnimationFrame(update));update();
 })();
 &lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
 " title="Question Paper Converter"></iframe><script id="staffFeatureScript">(function(){
@@ -1339,10 +1415,10 @@ $('staffIdSettingsOpen').onclick=()=>{draft={...settings};draftTemplate=template
 $('tlIdSettingsClose').onclick=()=>$('tlIdSettingsDialog').close();
 // Save the ID-card layout to Supabase (not just this browser).
 async function idCardCloud(){const db=window.testladrSupabaseClient;if(!db)throw Error('Supabase is unavailable');const {data,error}=await db.auth.getUser();if(error||!data?.user)throw Error('Please sign in first');return {db,uid:data.user.id}}
-async function loadIdCardCloud(){try{const {db,uid}=await idCardCloud();const {data,error}=await db.from('admin_id_card_settings').select('settings').eq('owner_id',uid).maybeSingle();if(error)throw error;if(data?.settings){const saved=data.settings;settings={...defaultPos,...saved.positions};template=saved.template||defaultTemplate;draft={...settings};draftTemplate=template;updateEditor()}}catch(e){console.warn('ID card settings cloud load:',e.message)}}
+let idCardCloudRevision=0;async function loadIdCardCloud(){const revision=idCardCloudRevision;try{const {db,uid}=await idCardCloud();const {data,error}=await db.from('admin_id_card_settings').select('settings').eq('owner_id',uid).maybeSingle();if(error)throw error;if(revision!==idCardCloudRevision)return;if(data?.settings){const saved=data.settings;settings={...defaultPos,...saved.positions};template=saved.template||defaultTemplate;draft={...settings};draftTemplate=template;updateEditor();if(selected)render().catch(console.error)}else console.warn('No cloud ID card settings found for this signed-in account')}catch(e){console.warn('ID card settings cloud load:',e.message)}}
 window.addEventListener('testladr-auth-ready',loadIdCardCloud);
 setTimeout(loadIdCardCloud,1100);
-$('tlIdSettingsSave').onclick=async()=>{const button=$('tlIdSettingsSave');button.disabled=true;button.textContent='Saving…';try{const {db,uid}=await idCardCloud();const payload={template:draftTemplate,positions:{...draft}};const {error}=await db.from('admin_id_card_settings').upsert({owner_id:uid,settings:payload,updated_at:new Date().toISOString()},{onConflict:'owner_id'});if(error)throw error;try{localStorage.setItem('testladr-idcard-settings-v1',JSON.stringify(payload))}catch(_){}settings={...draft};template=draftTemplate;$('tlIdSettingsDialog').close();if(selected)render().catch(console.error);alert('ID card layout saved to Supabase.')}catch(e){alert('ID card settings were NOT saved to Supabase: '+e.message+'\nRun the ID Card Settings SQL setup first.')}finally{button.disabled=false;button.textContent='Save Settings'}};
+$('tlIdSettingsSave').onclick=async()=>{const button=$('tlIdSettingsSave');button.disabled=true;button.textContent='Saving…';try{const {db,uid}=await idCardCloud();const payload={template:draftTemplate,positions:{...draft}};const {error}=await db.from('admin_id_card_settings').upsert({owner_id:uid,settings:payload,updated_at:new Date().toISOString()},{onConflict:'owner_id'});if(error)throw error;const {data:confirmed,error:readError}=await db.from('admin_id_card_settings').select('settings').eq('owner_id',uid).single();if(readError)throw Error('Supabase read-back failed: '+readError.message);const savedLayout=confirmed?.settings;if(!savedLayout)throw Error('Supabase returned no saved settings. Check table permissions.');const positionsMatch=Object.keys(payload.positions).every(k=>Number(savedLayout.positions?.[k])===Number(payload.positions[k]));if(!positionsMatch||savedLayout.template!==payload.template)throw Error('Supabase returned a different layout after saving. Check the account and database policies.');idCardCloudRevision++;try{localStorage.setItem('testladr-idcard-settings-v1',JSON.stringify(payload))}catch(_){}settings={...draft};template=draftTemplate;$('tlIdSettingsDialog').close();if(selected)render().catch(console.error);alert('ID card layout saved and verified in Supabase for this signed-in account.')}catch(e){alert('ID card settings could not be saved and verified: '+e.message+'\nIf the error mentions a missing table or permission, run the ID Card Settings SQL setup.')}finally{button.disabled=false;button.textContent='Save Settings'}};
 $('tlIdSettingsReset').onclick=()=>{if(!confirm('Restore the original TestLadr ID card design and positions?'))return;draft={...defaultPos};draftTemplate=defaultTemplate;updateEditor()};
 })();
 </script>
