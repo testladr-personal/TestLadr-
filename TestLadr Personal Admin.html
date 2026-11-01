@@ -1366,17 +1366,38 @@ async function uploadVendorFile(client,userId,vendorId,file){
  return {id,path,filename:file.name,type:file.type,size:file.size};
 }
 async function downloadVendorFile(path,name){
- // Safari on iPad blocks programmatic downloads launched after an asynchronous signed-URL request.
- // Open a tab during the original tap, then navigate it once the signed URL is ready.
+ // Open a preview immediately in the user tap gesture, before the async storage request.
  const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
- const preview=ios?window.open('about:blank','_blank'):null;
- if(preview){try{preview.document.title='Opening document…';preview.document.body.textContent='Preparing '+(name||'document')+'…';}catch(_){}}
- try{const client=db();const {data,error}=await client.storage.from('vendor-files').createSignedUrl(path,120);
- if(error)throw error;
- if(preview&&!preview.closed){preview.location.replace(data.signedUrl);return}
- if(ios){window.location.assign(data.signedUrl);return}
- const a=document.createElement('a');a.href=data.signedUrl;a.target='_blank';a.rel='noopener noreferrer';a.download=name||'file';document.body.append(a);a.click();a.remove();
- }catch(e){if(preview&&!preview.closed)preview.close();alert('Could not open file: '+e.message)}
+ const tab=ios?window.open('about:blank','_blank'):null;
+ if(tab){try{tab.document.title='Preparing document';tab.document.body.innerHTML='<p style="font:16px system-ui;padding:24px">Preparing your document…</p>'}catch(_){}}
+ let objectUrl=null;
+ try{
+  const client=db();
+  const {data:blob,error}=await client.storage.from('vendor-files').download(path);
+  if(error)throw error;
+  if(!blob || !blob.size)throw Error('The stored document is empty.');
+  objectUrl=URL.createObjectURL(blob);
+  if(ios){
+   if(tab&&!tab.closed){
+    // Blob navigation avoids Safari's unreliable cross-origin Content-Disposition download prompt.
+    tab.location.href=objectUrl;
+   }else{
+    // Popup blocked: present an explicit user-activated link, instead of silent failure.
+    const link=document.createElement('a');link.href=objectUrl;link.target='_blank';link.rel='noopener';link.textContent='Open '+(name||'document');
+    link.style.cssText='position:fixed;z-index:999999;left:16px;right:16px;bottom:20px;padding:16px;background:#1456a0;color:white;border-radius:12px;text-align:center;font:600 16px system-ui';
+    document.body.appendChild(link);setTimeout(()=>link.remove(),60000);
+   }
+   // Keep the object URL alive while the Safari preview is being displayed.
+   setTimeout(()=>URL.revokeObjectURL(objectUrl),10*60*1000);
+   return;
+  }
+  const a=document.createElement('a');a.href=objectUrl;a.download=name||'document';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(objectUrl),60000);
+ }catch(e){
+  if(tab&&!tab.closed){try{tab.document.body.textContent='Could not open document: '+e.message}catch(_){tab.close()}}
+  alert('Could not download vendor document: '+e.message);
+  if(objectUrl)URL.revokeObjectURL(objectUrl);
+ }
 }
 $('vendorDetailsBody').addEventListener('click',e=>{const a=e.target.closest('[data-vendor-file]');if(!a)return;e.preventDefault();downloadVendorFile(a.dataset.vendorFile,a.dataset.filename)});
 async function fileData(file){if(file.size>1024*1024)throw Error(file.name+' exceeds 1 MB');return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(Error('Could not read '+file.name));r.readAsDataURL(file)})}
