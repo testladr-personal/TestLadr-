@@ -1366,9 +1366,17 @@ async function uploadVendorFile(client,userId,vendorId,file){
  return {id,path,filename:file.name,type:file.type,size:file.size};
 }
 async function downloadVendorFile(path,name){
- try{const client=db();const {data,error}=await client.storage.from('vendor-files').createSignedUrl(path,60);
- if(error)throw error;const a=document.createElement('a');a.href=data.signedUrl;a.target='_blank';a.rel='noopener noreferrer';a.download=name||'file';document.body.append(a);a.click();a.remove()
- }catch(e){alert('Could not open file: '+e.message)}
+ // Safari on iPad blocks programmatic downloads launched after an asynchronous signed-URL request.
+ // Open a tab during the original tap, then navigate it once the signed URL is ready.
+ const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
+ const preview=ios?window.open('about:blank','_blank'):null;
+ if(preview){try{preview.document.title='Opening document…';preview.document.body.textContent='Preparing '+(name||'document')+'…';}catch(_){}}
+ try{const client=db();const {data,error}=await client.storage.from('vendor-files').createSignedUrl(path,120);
+ if(error)throw error;
+ if(preview&&!preview.closed){preview.location.replace(data.signedUrl);return}
+ if(ios){window.location.assign(data.signedUrl);return}
+ const a=document.createElement('a');a.href=data.signedUrl;a.target='_blank';a.rel='noopener noreferrer';a.download=name||'file';document.body.append(a);a.click();a.remove();
+ }catch(e){if(preview&&!preview.closed)preview.close();alert('Could not open file: '+e.message)}
 }
 $('vendorDetailsBody').addEventListener('click',e=>{const a=e.target.closest('[data-vendor-file]');if(!a)return;e.preventDefault();downloadVendorFile(a.dataset.vendorFile,a.dataset.filename)});
 async function fileData(file){if(file.size>1024*1024)throw Error(file.name+' exceeds 1 MB');return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=()=>rej(Error('Could not read '+file.name));r.readAsDataURL(file)})}
